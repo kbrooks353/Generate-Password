@@ -33,6 +33,7 @@ function userPassLength() {
 }
 
 function generatePass() {
+    
     var newPassLength = userPassLength();
     for (var j = 0; j < newPassLength; j++) {
         var whichArr = randomIndex(allArr);
@@ -41,5 +42,13 @@ function generatePass() {
     }
 
 }
-document.getElementById("generate").addEventListener("click", generatePass());
+function copyText(){
+    var copiedText = document.getElementById("password");
+    copiedText.select();
+    document.execCommand("copy");
+}
+
+
+generatePass();
 document.getElementById("password").value = newPass;
+document.addEventListener("click", copyText());
